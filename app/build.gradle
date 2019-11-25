@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 
 ext.versions = [
-        support: "24.0.0",
-        constraintlayout: "1.0.0-alpha3"
+        support: "26.0.0",
+        constraintlayout: "1.0.0"
 ]
 
 def versionMajor = 1
@@ -11,12 +11,12 @@ def versionPatch = 0
 def versionBuild = 0
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 26
+    buildToolsVersion '28.0.2'
     defaultConfig {
         applicationId "io.caster.customviews"
         minSdkVersion 19
-        targetSdkVersion 24
+        targetSdkVersion 26
         versionCode versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
         versionName "${versionMajor}.${versionMinor}.${versionPatch}"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -30,15 +30,15 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     // Android
-    compile "com.android.support:appcompat-v7:${versions.support}"
+    implementation "com.android.support:appcompat-v7:${versions.support}"
     // Android: Widgets
-    compile "com.android.support.constraint:constraint-layout-solver:${versions.constraintlayout}"
-    compile "com.android.support.constraint:constraint-layout:${versions.constraintlayout}"
+    implementation "com.android.support.constraint:constraint-layout-solver:${versions.constraintlayout}"
+    implementation "com.android.support.constraint:constraint-layout:${versions.constraintlayout}"
     // Testing
-    testCompile 'junit:junit:4.12'
-    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
-    androidTestCompile 'com.android.support.test:runner:0.5'
-    androidTestCompile "com.android.support:support-annotations:${versions.support}"
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
+    androidTestImplementation 'com.android.support.test:runner:0.5'
+    androidTestImplementation "com.android.support:support-annotations:${versions.support}"
 }
